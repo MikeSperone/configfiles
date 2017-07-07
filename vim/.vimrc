@@ -2,12 +2,13 @@
 "  Vimrc
 "  Michael Sperone, 2017
 "
-
+set number
 syntax enable
 
 " Colors
 colorscheme molokai
 set background=dark
+set t_Co=256
 
 "  Spaces and Tabs
 filetype plugin indent on
