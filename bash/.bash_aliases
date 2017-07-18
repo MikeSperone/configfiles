@@ -11,11 +11,11 @@ alias reload='source ~/.bashrc'
 platform='other'
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
-    platform = 'mac'
+    platform='mac'
 elif [[ "$unamestr" == 'Linux' ]]; then
-    platform = 'linux'
+    platform='linux'
 elif [[ "$unamestr" == 'Cygwin' ]]; then
-    platform = 'windows'
+    platform='windows'
 fi
 
 #
