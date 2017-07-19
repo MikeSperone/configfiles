@@ -11,12 +11,12 @@ For my own usage, others are welcome to use them - I highly recommend reviewing 
 
 # Caveats
 ## This is specific to my computer
-Though it uses basically general files and locations, you should browse the .sh scripts and files to confirm files and locations
+Though it uses basically general files and locations, you should browse the .sh scripts and files to confirm files and locations.  Future versions will have a better interactive script.
 
 # install will overwrite your files!!
 to install run:  `./install.sh`
 
 # to backup your current files (this will overwrite where this is stored)
-first update update.sh so that the directory where this is stored is noted in `backup_directory`
+first update backup.sh so that the directory where this is stored is noted in `backup_directory`
 
-then run `./update.sh`
+then run `./backup.sh`
