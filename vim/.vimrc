@@ -29,3 +29,9 @@ let g:netrw_altv = 1
 
 " Searching
 set hlsearch
+
+" Git Gutter
+" https://github.com/airblade/vim-gitgutter
+
+set updatetime=1000
+let g:gitgutter_map_keys=0
