@@ -9,10 +9,19 @@ read continue_update
 if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "..."
     backup_folder="."
-    echo "vim files..."
+    echo "--- VIM ---"
+    echo "settings..."
     cp "${backup_folder}/vim/.vimrc" ~/.vimrc
+    echo "colors..."
     cp -r "${backup_folder}/vim/colors" ~/.vim/colors
-    echo "bash aliases..."
+    echo " -- plugins --"
+    echo "pathogen..."
+    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+            curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    cd ~/.vim/bundle
+    git clone git://github.com/airblade/vim-gitgutter.git
+    echo "--- BASH ---"
+    echo "aliases..."
     cp "${backup_folder}/bash/.bash_aliases" ~/.bash_aliases
 else
     echo "You selected no, good day"
