@@ -9,7 +9,7 @@ For my own usage, others are welcome to use them - I highly recommend reviewing 
 ## Vim Setup
 * Monokai colorscheme
 * Netrw Directory setup
-* Map <Tab> to <Esc> (just use ">>" for tabs)
+* Map Tab to Esc (just use ">>" for tabs)
 * Indenting rules
 * Line Numbers
 * Pathogen plug-in installer
