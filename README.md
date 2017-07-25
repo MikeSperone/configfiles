@@ -13,8 +13,9 @@ For my own usage, others are welcome to use them - I highly recommend reviewing 
 * Indenting rules
 * Line Numbers
 * Pathogen plug-in installer
-* Syntastic syntax checker
+* Syntastic - syntax checker
 * Git Gutter
+* Airline - status/tabline
 
 
 ## This is specific to my computer
