@@ -2,16 +2,26 @@
 vim, bash, git and others.
 For my own usage, others are welcome to use them - I highly recommend reviewing what is in here before using these.
 
-## Current list of files
+## Current list of config files
 .vimrc
 
 .vim/colors/<colorscheme_files>
 
 .bash_aliases
 
+## Vim Setup
+Monokai colorscheme
+Netrw Directory setup
+Map <Tab> to <Esc> (just use ">>" for tabs)
+Indenting rules
+Line Numbers
+Pathogen plug-in installer
+Syntastic syntax checker
+Git Gutter
+
 # Caveats
 ## This is specific to my computer
-Though it uses basically general files and locations, you should browse the .sh scripts and files to confirm files and locations.  Future versions will have a better interactive script.
+I'm starting to add more general considerations to allow install everywhere (OSX, Linux, Windows), but you should still browse the .sh scripts and files to confirm files and locations.
 
 # install will overwrite your files!!
 to install run:  `./install.sh`
