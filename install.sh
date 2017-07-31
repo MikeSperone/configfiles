@@ -21,7 +21,9 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     cd ~/.vim/bundle
     git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
     git clone git://github.com/airblade/vim-gitgutter.git
+    git clone git://github.com/tpope/vim-commentary.git
     git clone https://github.com/vim-airline/vim-airline
+    git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
     echo "--- BASH ---"
     echo "aliases..."
     cp "${backup_folder}/bash/.bash_aliases" ~/.bash_aliases
