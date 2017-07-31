@@ -39,6 +39,9 @@ if [ "$platform" != 'mac' ]; then
     alias x:='cd /mnt/x'
 fi
 
+# Change Directories
+alias ..='cd ..'
+
 #
 # ssh aliases
 #
