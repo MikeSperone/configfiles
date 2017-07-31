@@ -12,10 +12,14 @@ For my own usage, others are welcome to use them - I highly recommend reviewing 
 * Map Tab to Esc (just use ">>" for tabs)
 * Indenting rules
 * Line Numbers
-* Pathogen plug-in installer
-* Syntastic - syntax checker
-* Git Gutter
-* Airline - status/tabline
+
+## Vim Plugins
+* [Pathogen](https://github.com/tpope/vim-pathogen) - plug-in installer
+* [Syntastic](https://github.com/vim-syntastic/syntastic) - syntax checker
+* [Git Gutter](https://github.com/airblade/vim-gitgutter)
+* [Airline](https://github.com/vim-airline/vim-airline) - status/tabline
+* [Airline Themes](https://github.com/vim-airline/vim-airline-themes)
+* [Commentary](https://github.com/tpope/vim-commentary) - comments shortcuts
 
 
 ## This is specific to my computer
