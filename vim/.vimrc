@@ -13,7 +13,9 @@ syntax on
 colorscheme molokai
 set background=dark
 set t_Co=256
-
+let g:airline_theme='base16'
+set laststatus=2
+ 
 "  Spaces and Tabs
 filetype plugin indent on
 set tabstop=4
