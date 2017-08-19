@@ -20,6 +20,8 @@ For my own usage, others are welcome to use them - I highly recommend reviewing 
 * [Airline](https://github.com/vim-airline/vim-airline) - status/tabline
 * [Airline Themes](https://github.com/vim-airline/vim-airline-themes)
 * [Commentary](https://github.com/tpope/vim-commentary) - comments shortcuts
+* Pug - (formerly jade) templating
+* Pug completion
 
 
 ## This is specific to my computer
