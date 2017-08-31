@@ -11,16 +11,18 @@ set number
 " Colors
 syntax on
 colorscheme molokai
-set background=dark
-set t_Co=256
+
+" Theme
 let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
 set laststatus=2
  
 "  Spaces and Tabs
 filetype plugin indent on
 set tabstop=4
-set softtabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 
@@ -66,3 +68,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['jshint', 'eslint']
+
+" Airline - show buffer, filenames only
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_tabs = 0
