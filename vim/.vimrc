@@ -49,12 +49,18 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" F3 - un-highlight search
+nnoremap <F3> :set hlsearch!<CR>
+
+" F7/F9 - forward/backwards in buffer
+nnoremap <F7> :bp<CR>
+nnoremap <F9> :bn<CR>
+
 " Searching
 set hlsearch
 
 " Git Gutter
 " https://github.com/airblade/vim-gitgutter
-
 set updatetime=1000
 let g:gitgutter_map_keys=0
 
@@ -68,9 +74,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['jshint', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Airline - show buffer, filenames only
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tabs = 0
+"  show hostname
+let g:airline#extensions#tabline#buffers_label = '%{hostname()}'
