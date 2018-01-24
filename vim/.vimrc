@@ -42,6 +42,9 @@ let g:netrw_altv = 1
 set winheight=30
 set winminheight=5
 
+" disable escape sequences
+set noesckeys
+
 " Moving Between Windows
 "  Ctrl + h,j,k,l to move L, Dn, Up, R
 nnoremap <C-h> <C-w>h
@@ -52,6 +55,10 @@ nnoremap <C-l> <C-w>l
 " F3 - un-highlight search
 nnoremap <F3> :set hlsearch!<CR>
 
+" F5/F6 -> code fold/unfold
+nnoremap <F5> zc<CR>
+nnoremap <F6> zo<CR>
+
 " F7/F9 - forward/backwards in buffer
 nnoremap <F7> :bp<CR>
 nnoremap <F9> :bn<CR>
@@ -59,6 +66,14 @@ nnoremap <F9> :bn<CR>
 " Searching
 set hlsearch
 
+" code folding
+set foldlevelstart=99
+
+" Javascript code folding
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
 " Git Gutter
 " https://github.com/airblade/vim-gitgutter
 set updatetime=1000
