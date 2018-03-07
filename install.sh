@@ -35,6 +35,11 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "airline..."
     git clone https://github.com/vim-airline/vim-airline
     git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
+    echo "youcompleteme..."
+    git clone https://github.com/valloric/youcompleteme
+    cd youcompleteme
+    git submodule update --init --recursive
+    ./install.py --js-completer --rust-completer
     echo "  pug..."
     git clone git://github.com/digitaltoad/vim-pug.git
     git clone https://github.com/dnitro/vim-pug-complete
