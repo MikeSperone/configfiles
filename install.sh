@@ -8,44 +8,10 @@ echo "Press [Y|n] to continue >"
 read continue_update
 if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "..."
-    cd ~
-    backup_folder="."
-    echo "--- VIM ---"
-    echo "settings..."
-    cp "${backup_folder}/vim/.vimrc" ~/.vimrc
-    echo "colors..."
-    cp -r "${backup_folder}/vim/colors" ~/.vim/colors
-    echo "powerline fonts..."
-    git clone https://github.com/powerline/fonts.git --depth=1
-    cd fonts
-    ./install.sh
-    cd ..
-    rm -rf fonts
-    echo " -- plugins --"
-    echo "  pathogen..."
-    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-            curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-    cd ~/.vim/bundle
-    echo "  syntastic..."
-    git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
-    echo "  gitgutter..."
-    git clone git://github.com/airblade/vim-gitgutter.git
-    echo "  commentary..."
-    git clone git://github.com/tpope/vim-commentary.git
-    echo "airline..."
-    git clone https://github.com/vim-airline/vim-airline
-    git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
-    echo "youcompleteme..."
-    git clone https://github.com/valloric/youcompleteme
-    cd youcompleteme
-    git submodule update --init --recursive
-    ./install.py --js-completer --rust-completer
-    echo "  pug..."
-    git clone git://github.com/digitaltoad/vim-pug.git
-    git clone https://github.com/dnitro/vim-pug-complete
+    ./vim/install_plugins.sh
     echo "--- BASH ---"
     echo "aliases..."
-    cp "${backup_folder}/bash/.bash_aliases" ~/.bash_aliases
+    cp ./bash/.bash_aliases ~/.bash_aliases
 else
     echo "You selected no, good day"
 fi
