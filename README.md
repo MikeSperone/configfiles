@@ -20,9 +20,6 @@ For my own usage, others are welcome to use them - I highly recommend reviewing 
 * [Airline](https://github.com/vim-airline/vim-airline) - status/tabline
 * [Airline Themes](https://github.com/vim-airline/vim-airline-themes)
 * [Commentary](https://github.com/tpope/vim-commentary) - comments shortcuts
-* Pug - (formerly jade) templating
-* Pug completion
-
 
 ## This is specific to my computer
 I'm starting to add more general considerations to allow install everywhere (OSX, Linux, Windows), but you should still browse the .sh scripts and files to confirm files and locations.
