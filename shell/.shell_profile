@@ -1,0 +1,5 @@
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/MyBins/Faust-2.14.4/bin:$PATH"
+export PATH="/usr/local/Cellar/python\@2/2.7.16/Frameworks/Python.framework/Versions/2.7/bin:$PATH"
+
+source $HOME/configfiles/.shell_aliases
