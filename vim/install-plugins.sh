@@ -1,33 +1,25 @@
 #!/bin/bash
 # update DefaultConfigFiles to this system's current files
 verbose=true
-echo "-- Installing Vim Config --"
+echo "-- Installing Vim Plugins --"
 echo " "
-echo "ARE YOU SURE!! THIS WILL OVERWRITE YOUR CURRENT .vimrc FILES!"
-echo "Press [Y|n] to continue >"
+echo "Proceed? [Y|n]"
 read continue_update
 if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "..."
 
-    echo "backing up current vim setup..."
-    backup_folder="~/config_backup"
-    mkdir $backup_folder
-    cp ~/.vimrc $backup_folder/.vimrc
-    cp ~/.vim/colors/** $backup_folder
-
-    echo "copying vimrc..."
-    cp ./vim/.vimrc ~/.vimrc
-
     echo "copying colors..."
-    cp -r ./vim/colors ~/.vim/colors
+    cp -r ./vim/colors/** ~/.vim/colors/**
 
-    echo "installing powerline fonts..."
-    git clone https://github.com/powerline/fonts.git --depth=1
-    cd fonts
-    ./install.sh
-    cd ..
+    echo "Install Powerline Fonts? [Y|n]"
+    read powerline_fonts
+    if [[ $powerline_fonts == "y" || $powerline_fonts == "Y" ]]; then
+        echo "installing powerline fonts..."
+        git clone https://github.com/powerline/fonts.git --depth=1
+        ./fonts/install.sh
+        rm -rf fonts
+    fi
 
-    rm -rf fonts
 
     echo " --- Vim Plugins ---"
     echo "  pathogen..."
@@ -44,12 +36,14 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     git clone https://github.com/vim-airline/vim-airline
     git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 
-    # I think I might not want to use pug anymore
-    # echo "  pug..."
-    # git clone git://github.com/digitaltoad/vim-pug.git
-    # git clone https://github.com/dnitro/vim-pug-complete
+    echo "Install Plugins to assist with Tmux? [Y|n]"
+    read tmux_plugins
+    if [[ $tmux_plugins == "y" || $tmux_plugins == "Y" ]]; then
+        echo " tmux navigator..."
+        git clone git@github.com:christoomey/vim-tmux-navigator.git
+    fi
 else
-    echo "You selected no, good day"
+    echo "You selected no, good day."
 fi
 
 echo "All done, thank you"
