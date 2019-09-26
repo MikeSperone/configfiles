@@ -134,8 +134,11 @@ let g:syntastic_javascript_checkers = ['eslint']
 " autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : findfile('.eslintrc.js', '.;') != '' ? ['eslint'] : findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['standard']
 autocmd BufNewFile,BufRead *.data set ft=javascript
 
-" --- Airline ---
+" --- Slime ---
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
 
+" --- Airline ---
 "   theme
 let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
