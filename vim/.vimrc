@@ -134,6 +134,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 " autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : findfile('.eslintrc.js', '.;') != '' ? ['eslint'] : findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['standard']
 autocmd BufNewFile,BufRead *.data set ft=javascript
 
+" --- Calendar ---
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
 " --- Slime ---
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
