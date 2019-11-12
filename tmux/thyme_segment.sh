@@ -4,7 +4,7 @@
 # set :tmux_theme, "%s %s"
 
 run_segment() {
-    if [ -f /home/${USER}/.thyme-tmux ]; then
+    if [ -f $HOME/.thyme-tmux ]; then
         echo -n "Pomodoro: "
         CURRENT_TIME=$(cat ~/.thyme-tmux)
         CURRENT_CONV=$(date -d "1970-01-01 ${CURRENT_TIME}" +"%s")
