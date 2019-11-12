@@ -1,0 +1,154 @@
+" Vim Configuration - Michael Sperone
+
+" Start Pathogen
+execute pathogen#infect()
+
+set nocompatible
+set number
+
+" Theme and Colors
+syntax on
+colorscheme molokai
+
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+set laststatus=2
+
+"  Spaces and Tabs
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+" Searching
+set hlsearch
+set incsearch
+" disable escape sequences (unused, slows down other functions)
+set noesckeys
+
+" Directory (netrw)
+"   liststyle - 1: wide (file info) | 3: tree
+
+let g:netrw_browse_split = 3
+let g:netrw_altv = 1
+" Landscape View Setup
+let g:netrw_banner = 0
+let g:netrw_winsize = 20
+let g:netrw_liststyle = 1
+" Portrait View Setup
+" let g:netrw_windsize = 16
+" let g:netrw_liststyle = 3
+
+" Resize windows
+set winheight=30
+
+" --- Finding Files ---
+"   Recursive directory search, and tab completion
+set path+=**
+"   ignore node_modules folder
+set wildignore+=**/node_modules/**
+set wildignore+=**/.git/**
+"   display all matching files when tab completing
+set wildmenu
+
+" --- Remap Keys ---
+
+" Moving Between Windows
+"  Ctrl + h,j,k,l to move L, Dn, Up, R
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" tab autocomplete
+function! CleverTab()
+    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+        return "\<Tab>"
+    else
+        return "\<C-N>"
+    endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
+" autocomple while typing (doesn't work)
+" augroup myautocomp
+"     au!
+"     au TextChangedI * normal <C-R><C-N><CR>
+" augroup END
+
+"  F Keys
+nnoremap <F3> :set hlsearch!<CR>
+"     show relative numbers
+nnoremap <F4> :set number relativenumber!<CR>
+set nu rnu
+"     code fold/unfold
+nnoremap <F5> zc<CR>
+nnoremap <F6> zo<CR>
+"     move forward/backward in buffer
+nnoremap <F7> :bp<CR>
+nnoremap <F9> :bn<CR>
+" or:
+nnoremap <Home> :bp<CR>
+nnoremap <End> :bn<CR>
+
+" Javascript code folding
+set foldlevelstart=99
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=indent
+augroup END
+
+" ==== PLUGINS ====
+
+" -- Git Gutter
+"   https://github.com/airblade/vim-gitgutter
+set updatetime=1000
+let g:gitgutter_map_keys=0
+
+" -- Syntastic
+"   default setup, as recommended
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*i
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:javascript_plugin_jsdoc = 1
+let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exec = '~/node_modules/.bin/eslint'
+" let g:syntastic_javascript_eslint_exec = '~/node_modules/.bin/eslint'
+" let g:syntastic_javascript_eslint_exec = '$(npm bin)/eslint'
+" let g:syntastic_javascript_jshint_exec = '$(npm bin)/jshint'
+" function! PickALinter()
+"     if findfile('.eslintrc.js', '.;') != ''
+"         return ['eslint']
+"     elseif findfile('.eslintrc', '.;') != ''
+"         return ['eslint']
+"     else
+"         return ['jshint']
+"     endif
+" endfunction
+" autocmd FileType javascript let b:syntastic_checkers = PickALinter()
+" autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : findfile('.eslintrc.js', '.;') != '' ? ['eslint'] : findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['standard']
+autocmd BufNewFile,BufRead *.data set ft=javascript
+
+" --- Slime ---
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+
+" --- Airline ---
+"   theme
+let g:airline_powerline_fonts=1
+let g:airline_theme='molokai'
+
+"   show buffer, filenames only
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+"   if index.js, show folder name
+let g:airline#extensions#tabline#formatter = 'jsformatter' 
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#syntastic#enabled = 1
+"   show hostname
+let g:airline#extensions#tabline#buffers_label = '%{hostname()}'

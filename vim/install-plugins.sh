@@ -42,6 +42,13 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
         echo " tmux navigator..."
         git clone git@github.com:christoomey/vim-tmux-navigator.git
     fi
+
+    echo "Install Slime for Vim? (an integrated REPL for all languages) [Y|n]"
+    read slimevim
+    if [[ $slimevim == "y" || $slimevim == "Y" ]]; then
+        echo "slime vim..."
+        git clone git://github.com/jpalardy/vim-slime.git
+    fi
 else
     echo "You selected no, good day."
 fi
