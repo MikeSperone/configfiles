@@ -13,6 +13,8 @@ run_segment() {
         else
             echo $CURRENT_TIME
         fi
+    elif [ -f $HOME/.pomodoro ]; then
+        echo $(pomodoro status)
     else
         return 1
     fi
