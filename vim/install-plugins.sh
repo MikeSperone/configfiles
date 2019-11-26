@@ -35,6 +35,9 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "  airline..."
     git clone https://github.com/vim-airline/vim-airline
     git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
+    echo "  javascript..."
+    git clone git@github.com:pangloss/vim-javascript.git
+    git clone git@github.com:leafgarland/typescript-vim.git
 
     echo "Install Plugins to assist with Tmux? [Y|n]"
     read tmux_plugins
@@ -49,6 +52,14 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
         echo "slime vim..."
         git clone git://github.com/jpalardy/vim-slime.git
     fi
+
+    echo "Install Vim Calendar? [Y|n]"
+    read vim_cal 
+    if [[ $vim_cal == "y" || $vim_cal == "Y" ]]; then
+        echo " vim-calendar..."
+        git clone git@github.com:itchyny/calendar.vim.git
+    fi
+
 else
     echo "You selected no, good day."
 fi
