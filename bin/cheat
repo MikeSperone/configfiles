@@ -1,0 +1,6 @@
+#!/bin/sh
+
+args=$@
+query=${args// /+}
+echo $query
+curl cht.sh/$query
