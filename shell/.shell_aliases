@@ -4,6 +4,7 @@
 #
 
 alias deploy='~/Projects/deployments/deploy.py'
+alias t='todo.sh'
 
 #
 #  Detect OS

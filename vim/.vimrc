@@ -133,6 +133,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 " autocmd FileType javascript let b:syntastic_checkers = PickALinter()
 " autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : findfile('.eslintrc.js', '.;') != '' ? ['eslint'] : findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['standard']
 autocmd BufNewFile,BufRead *.data set ft=javascript
+autocmd BufNewFile,BufRead *.ejs set ft=html
 
 " --- Calendar ---
 let g:calendar_google_calendar = 1
