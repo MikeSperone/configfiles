@@ -5,6 +5,7 @@ execute pathogen#infect()
 
 set nocompatible
 set number
+set colorcolumn=80
 
 " Theme and Colors
 syntax on
