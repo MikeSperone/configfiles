@@ -52,11 +52,13 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     git_install git://github.com/tpope/vim-commentary.git vim-commentary
     echo "\n  airline..."
     git_install https://github.com/vim-airline/vim-airline vim-airline
-    git_install https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes vim-airline-themes
+    git_install https://github.com/vim-airline/vim-airline-themes vim-airline-themes
     echo "\n  javascript..."
     git_install git@github.com:pangloss/vim-javascript.git vim-javascript
     git_install git@github.com:leafgarland/typescript-vim.git typescript-vim
-
+    echo "\n  auto pairs..."
+    git clone git://github.com/jiangmiao/auto-pairs.git auto-pairs
+ 
     echo "\n\nInstall Plugins to assist with Tmux? [Y|n]"
     read tmux_plugins
     if [[ $tmux_plugins == "y" || $tmux_plugins == "Y" ]]; then
