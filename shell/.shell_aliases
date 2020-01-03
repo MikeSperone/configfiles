@@ -4,6 +4,8 @@
 #
 
 alias deploy='~/Projects/deployments/deploy.py'
+alias todo='todo.sh'
+alias t='todo.sh'
 
 #
 #  Detect OS
@@ -26,18 +28,3 @@ if [[ "$platform" == 'windows' ]]; then
 else
     alias l='ls -al'
 fi
-
-#
-# change drives
-#
-if [ "$platform" != 'mac' ]; then
-    alias c:='cd /mnt/c'
-    alias d:='cd /mnt/d'
-    alias e:='cd /mnt/e'
-    alias f:='cd /mnt/f'
-    alias g:='cd /mnt/g'
-    alias x:='cd /mnt/x'
-fi
-
-# Change Directories
-alias ..='cd ..'
