@@ -4,13 +4,16 @@ echo "-- Install Config Files --"
 echo " "
 echo "Install config files from this directory"
 
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+cd "$parent_path"
+
 ## Vim Config Setup
 echo "Would you like to install the vim configuration?"
 echo "Press [Y|n] to continue >"
 read vim_config 
 if [[ $vim_config == "y" || $vim_config == "Y" ]]; then
     echo "..."
-    ./vim/install.sh
+    ./vim/install-vim.sh
 else
     echo "skipping vim config"
 fi
@@ -37,7 +40,7 @@ if [[ $sh_config == "y" || $sh_config == "Y" ]]; then
     read bash_config
     if [[ $bash_config == "y" || $bash_config == "Y" ]]; then
         echo "aliases..."
-        cp ./bash/.bash_aliases ~/.bash_aliases
+        cp ./bash/.bash_aliases $HOME/.bash_aliases
     else
         echo "skipping bash config"
     fi
