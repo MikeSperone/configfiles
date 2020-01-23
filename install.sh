@@ -3,15 +3,44 @@
 echo "-- Install Config Files --"
 echo " "
 echo "Install config files from this directory"
-echo "ARE YOU SURE!! THIS WILL OVERWRITE YOUR CURRENT .vimrc AND .bash_aliases FILES!"
+
+## Vim Config Setup
+echo "Would you like to install the vim configuration?"
 echo "Press [Y|n] to continue >"
-read continue_update
-if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
+read vim_config 
+if [[ $vim_config == "y" || $vim_config == "Y" ]]; then
     echo "..."
-    ./vim/install_plugins.sh
-    echo "--- BASH ---"
-    echo "aliases..."
-    cp ./bash/.bash_aliases ~/.bash_aliases
+    ./vim/install.sh
+else
+    echo "skipping vim config"
+fi
+
+## Shell Config Setup
+echo "Would you like to install your shell configuration?"
+echo "Press [Y|n] to continue >"
+read sh_config 
+if [[ $sh_config == "y" || $sh_config == "Y" ]]; then
+    echo "shell aliases..."
+    cp ./shell/.shell_aliases $HOME/.shell_aliases
+
+    echo "Would you like to install a zsh configuration?"
+    echo "Press [Y|n] to continue >"
+    read zsh_config
+    if [[ $zsh_config == "y" || $zsh_config == "Y" ]]; then
+        ./shell/zsh/install_zsh.sh
+    else
+        echo "skipping zsh config"
+    fi
+
+    echo "Would you like to install a bash configuration?"
+    echo "Press [Y|n] to continue >"
+    read bash_config
+    if [[ $bash_config == "y" || $bash_config == "Y" ]]; then
+        echo "aliases..."
+        cp ./bash/.bash_aliases ~/.bash_aliases
+    else
+        echo "skipping bash config"
+    fi
 else
     echo "You selected no, good day"
 fi
