@@ -1,16 +1,7 @@
 " --- Slimv ---
 " let g:slimv_swank_cmd = '!osascript -e "! tmux new-window -d -n REPL-SBCL "sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp"'
 
-" " --- vim-slime ---
-" let g:slime_target = "tmux"
-" let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
-" let g:slime_dont_ask_default = 1
-
-set runtimepath+=$HOME/.vim/bundle/Vlime/vim
-
 " " --- Vlime ---
-let g:vlime_enable_autodoc = v:true
-let g:vlime_window_settings = {'sldb': {'pos': 'belowright', 'vertical': v:true}, 'inspector': {'pos': 'belowright', 'vertical': v:true}, 'preview': {'pos': 'belowright', 'size': v:null, 'vertical': v:true}}
 augroup rainbow_lisp
     autocmd!
     autocmd FileType lisp,clojure,scheme RainbowParentheses

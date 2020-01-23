@@ -64,9 +64,12 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "\n  airline..."
     git_install https://github.com/vim-airline/vim-airline vim-airline
     git_install https://github.com/vim-airline/vim-airline-themes vim-airline-themes
+    echo "source \$DOTFILES_DIRECTORY/vim/vimrc-airline" >> $HOME/.vimrc
+
     echo "\n  javascript..."
     git_install git@github.com:pangloss/vim-javascript.git vim-javascript
     git_install git@github.com:leafgarland/typescript-vim.git typescript-vim
+
     echo "\n  auto pairs..."
     git clone git://github.com/jiangmiao/auto-pairs.git auto-pairs
  
@@ -82,6 +85,7 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     if [[ $slimevim == "y" || $slimevim == "Y" ]]; then
         echo "slime vim..."
         git_install git://github.com/jpalardy/vim-slime.git vim-slime
+        echo "source \$DOTFILES_DIRECTORY/vim/vimrc-slime" >> $HOME/.vimrc
     fi
 
     echo "\n\nInstall Vim Calendar? [Y|n]"
@@ -89,6 +93,8 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     if [[ $vim_cal == "y" || $vim_cal == "Y" ]]; then
         echo " vim-calendar..."
         git_install git@github.com:itchyny/calendar.vim.git calendar.vim
+        echo "let g:calendar_google_calendar = 1" >> $HOME/.vimrc
+        echo "let g:calendar_google_task = 1" >> $HOME/.vimrc
     fi
 
 else
