@@ -25,7 +25,18 @@ read continue_update
 if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "..."
 
+    if [ -d ~/.vim ]; then
+        echo "vim directory exists"
+    else
+        mkdir ~/.vim
+    fi
+
     echo "copying colors..."
+    if [ -d ~/.vim/colors]; then
+        echo "colors directory exists"
+    else
+        mkdir ~/.vim/colors
+    fi
     cp -R ./vim/colors/** ~/.vim/colors/**
 
     echo "Install Patched NerdFonts? [Y|n]"
