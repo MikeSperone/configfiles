@@ -2,6 +2,8 @@
 #  Michael Sperone, 2017
 #  non-shell-specific aliases
 
+source ../utils/detect_os.sh
+
 alias deploy='~/Projects/deployments/deploy.py'
 alias todo='todo.sh'
 alias t='todo.sh'
@@ -22,19 +24,6 @@ alias list-scripts='npm-scripts'
 alias ..='cd ..'
 alias la='ls -al'
 alias l='ls -al'
-
-#
-#  Detect OS
-#
-platform='other'
-unamestr=`uname`
-if [[ "$unamestr" == 'Darwin' ]]; then
-    platform='mac'
-elif [[ "$unamestr" == 'Linux' ]]; then
-    platform='linux'
-elif [[ "$unamestr" == 'Cygwin' ]]; then
-    platform='windows'
-fi
 
 #
 #  File aliases
