@@ -2,7 +2,7 @@
 #  Michael Sperone, 2017
 #  non-shell-specific aliases
 
-source ../utils/detect_os.sh
+source $DOTFILES_DIRECTORY/utils/detect_os.sh
 
 alias deploy='~/Projects/deployments/deploy.py'
 alias todo='todo.sh'
@@ -25,9 +25,10 @@ alias ..='cd ..'
 alias la='ls -al'
 alias l='ls -al'
 
-#
-#  File aliases
-#
+## git aliases
+alias gs='git status'
+
+##  File aliases
 if [[ "$platform" == 'windows' ]]; then
     alias l='dir'
 else

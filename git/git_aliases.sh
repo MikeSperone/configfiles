@@ -15,7 +15,7 @@ read -p "Would you like to set vim as your default editor? [Y]" vim_editor
 
 if [[ "$vim_editor" = "Y" ]];
 then
-    git config --global core.editor /usr/bin/vim
+    git config --global core.editor `which vim`
 else
     echo "Default editor not set"
 fi

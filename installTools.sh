@@ -3,7 +3,7 @@
 # Tools I like to use
 #   This will install all of them
 
-source ./utils/detect_os.sh
+source $DOTFILES_DIRECTORY/utils/detect_os.sh
 
 echo "msee | terminal markdown viewer"
 echo "fx   | json viewer"
