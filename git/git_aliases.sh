@@ -8,6 +8,7 @@ git config --global alias.checkoukt checkout
 git config --global alias.checokut checkout
 git config --global alias.co checkout
 git config --global alias.stauts status
+git config --global alias.staus status
 git config --global alias.statsus status
 git config --global alias.ls 'log --pretty=format:"%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn]" --decorate'
 
