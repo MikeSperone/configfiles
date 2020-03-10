@@ -1,0 +1,7 @@
+" --- Airline ---
+"   show hostname
+if match(expand('%:p'), "scp://") == 0
+    let g:airline#extensions#tabline#buffers_label = matchstr(split(expand('%:p'), "@")[1], "^[^\.]*\.")
+else
+    let g:airline#extensions#tabline#buffers_label = '%{hostname()}'
+endif

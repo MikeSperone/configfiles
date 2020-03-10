@@ -118,6 +118,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:javascript_plugin_jsdoc = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['eslint']
 " let g:syntastic_javascript_eslint_exec = '~/node_modules/.bin/eslint'
 " let g:syntastic_javascript_eslint_exec = '~/node_modules/.bin/eslint'
 " let g:syntastic_javascript_eslint_exec = '$(npm bin)/eslint'
