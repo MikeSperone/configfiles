@@ -49,7 +49,14 @@ set winheight=30
 set path+=**
 "   ignore node_modules folder
 set wildignore+=**/node_modules/**
+set wildignore+=**/node-offline-mirror/**
+set wildignore+=**/node-packages/**
 set wildignore+=**/.git/**
+set wildignore+=**/.githooks/**
+set wildignore+=**/.tmp/**
+set wildignore+=**/.cache/**
+set wildignore+=**/__mocks__/**
+set wildignore+=**/virtual_env/**
 "   display all matching files when tab completing
 set wildmenu
 
@@ -149,6 +156,9 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-o
 "   theme
 let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
+
+"   disable tagbar
+let g:airline#extensions#tagbar#enabled = 0
 
 "   show buffer, filenames only
 let g:airline#extensions#tabline#enabled = 1
