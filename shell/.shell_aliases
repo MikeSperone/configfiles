@@ -9,7 +9,7 @@ alias todo='todo.sh'
 alias t='todo.sh'
 
 ## show ip address ##
-alias ip='ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '"'"'{print $2}'"'"''
+alias get_ip='ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '"'"'{print $2}'"'"''
 
 ## show things from npm package.json ##
 alias npm-deps='fx package.json .dependencies'
