@@ -10,8 +10,10 @@ echo "fx   | json viewer"
 npm i -g msee fx
 
 echo "todo | simple task list"
+echo "ddgr | cli duck duck go search"
 if [[ "$platform" == 'mac' ]]; then
     brew install todo-txt
+    brew install ddgr
 else
     echo "I did not set this up for linux yet."
 fi
