@@ -80,6 +80,15 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
         git_install git@github.com:christoomey/vim-tmux-navigator.git vim-tmux-navigator
     fi
 
+    echo "\n\nInstall Plugins to assist with Text writing? [Y|n]"
+    read writing_plugins
+    if [[ $writing_plugins == "y" || $writing_plugins == "Y" ]]; then
+        echo "vim-pencil"
+        git_install https://github.com/vim-scripts/vim-pencil.git vim-pencil
+        echo "vim-lexical"
+        git_install https://github.com/reedes/vim-lexical.git vim-lexical
+    fi
+
     echo "\n\nInstall Slime for Vim? (an integrated REPL for all languages) [Y|n]"
     read slimevim
     if [[ $slimevim == "y" || $slimevim == "Y" ]]; then
