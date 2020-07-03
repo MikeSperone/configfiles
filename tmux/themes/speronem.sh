@@ -1,5 +1,4 @@
 # Speronem Theme - tmux-powerline
-echo "implementing speronem tmux theme"
 
 if patched_font_in_use; then
     TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
