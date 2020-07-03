@@ -142,6 +142,9 @@ let g:syntastic_typescript_checkers = ['eslint']
 " endfunction
 " autocmd FileType javascript let b:syntastic_checkers = PickALinter()
 " autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : findfile('.eslintrc.js', '.;') != '' ? ['eslint'] : findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['standard']
+
+let g:syntastic_python_checkers = ['pylint']
+
 autocmd BufNewFile,BufRead *.data set ft=javascript
 autocmd BufNewFile,BufRead *.ejs set ft=html
 source $DOTFILES_DIRECTORY/vim/vim-writing
