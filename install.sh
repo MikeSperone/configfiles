@@ -44,8 +44,19 @@ if [[ $sh_config == "y" || $sh_config == "Y" ]]; then
     else
         echo "skipping bash config"
     fi
+
+
 else
     echo "You selected no, good day"
+fi
+echo "Copy other config files?"
+echo "Press [Y|n] to continue >"
+read r
+if [[ $r == "y" || $r == "Y" ]]; then
+    echo "installing other configs..."
+    ./configs/install.sh
+else
+    echo "skipping bash config"
 fi
 
 echo "All done, thank you"

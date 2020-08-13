@@ -65,6 +65,8 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     git_install https://github.com/vim-airline/vim-airline vim-airline
     git_install https://github.com/vim-airline/vim-airline-themes vim-airline-themes
     echo "source \$DOTFILES_DIRECTORY/vim/vimrc-airline" >> $HOME/.vimrc
+    echo "\n  gutentags..."
+    git_install https://github.com/ludovicchabant/vim-gutentags.git vim-gutentags
 
     echo "\n  javascript..."
     git_install git@github.com:pangloss/vim-javascript.git vim-javascript
