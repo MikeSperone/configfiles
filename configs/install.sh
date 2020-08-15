@@ -4,6 +4,6 @@ echo "ctags >"
 read r
 if [[ $r == "y" || $r == "Y" ]]; then
     echo "ctag..."
-    cp ./config/ctags $HOME/.ctags
+    cp ./configs/ctags $HOME/.ctags
 fi
 
