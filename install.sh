@@ -5,6 +5,13 @@ echo " "
 echo "Install config files from this directory"
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+echo $parent_path
+read -p "Is this the correct directory for your dotfiles?" dd
+case $yn in
+    [Yy]* ) echo "OK"; break;;
+    * ) echo "You will need to find and update installed configs' paths after installation.";;
+esac
+DOTFILES_DIRECTORY=$parent_path
 cd "$parent_path"
 
 ## Vim Config Setup

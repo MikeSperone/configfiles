@@ -149,7 +149,6 @@ let g:syntastic_python_checkers = ['pylint']
 
 autocmd BufNewFile,BufRead *.data set ft=javascript
 autocmd BufNewFile,BufRead *.ejs set ft=html
-source $DOTFILES_DIRECTORY/vim/vim-writing
 
 " --- Calendar ---
 let g:calendar_google_calendar = 1
