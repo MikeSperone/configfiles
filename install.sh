@@ -5,6 +5,13 @@ echo " "
 echo "Install config files from this directory"
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+echo $parent_path
+read -p "Is this the correct directory for your dotfiles?" dd
+case $yn in
+    [Yy]* ) echo "OK"; break;;
+    * ) echo "You will need to find and update installed configs' paths after installation.";;
+esac
+DOTFILES_DIRECTORY=$parent_path
 cd "$parent_path"
 
 ## Vim Config Setup
@@ -44,8 +51,19 @@ if [[ $sh_config == "y" || $sh_config == "Y" ]]; then
     else
         echo "skipping bash config"
     fi
+
+
 else
     echo "You selected no, good day"
+fi
+echo "Copy other config files?"
+echo "Press [Y|n] to continue >"
+read r
+if [[ $r == "y" || $r == "Y" ]]; then
+    echo "installing other configs..."
+    ./configs/install.sh
+else
+    echo "skipping bash config"
 fi
 
 echo "All done, thank you"

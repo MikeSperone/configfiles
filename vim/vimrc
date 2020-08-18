@@ -6,6 +6,7 @@ execute pathogen#infect()
 set nocompatible
 set number
 set colorcolumn=80
+filetype plugin on
 
 " Theme and Colors
 syntax on
@@ -57,6 +58,8 @@ set wildignore+=**/.tmp/**
 set wildignore+=**/.cache/**
 set wildignore+=**/__mocks__/**
 set wildignore+=**/virtual_env/**
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 "   display all matching files when tab completing
 set wildmenu
 
@@ -141,6 +144,9 @@ let g:syntastic_typescript_checkers = ['eslint']
 " endfunction
 " autocmd FileType javascript let b:syntastic_checkers = PickALinter()
 " autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : findfile('.eslintrc.js', '.;') != '' ? ['eslint'] : findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['standard']
+
+let g:syntastic_python_checkers = ['pylint']
+
 autocmd BufNewFile,BufRead *.data set ft=javascript
 autocmd BufNewFile,BufRead *.ejs,*.nunj set ft=html
 
@@ -169,3 +175,5 @@ let g:airline#extensions#tabline#show_tabs = 0
 let g:airline#extensions#syntastic#enabled = 1
 "   show hostname
 let g:airline#extensions#tabline#buffers_label = '%{hostname()}'
+
+set statusline+=%{gutentags#statusline()}

@@ -1,15 +1,19 @@
+#!/bin/bash
 echo "Installing vim configuration"
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
 cd "$parent_path"
 
 if [[ -f $HOME/.vimrc ]]; then
-    echo "Backing up old vimrc to $HOME/.vimrc.bak"
+    echo "Backing up old vimrc to $HOME/.vimrc.bak..."
     mv $HOME/.vimrc $HOME/.vimrc.bak
 fi
 
-echo "Copying .vimrc file to $HOME"
-cp ./local.vimrc $HOME/.vimrc
+echo "Copying .vimrc file to $HOME..."
+echo "\"Local Vim Configuration - Michael Sperone" >> $HOME/.vimrc
+
+echo "source $parent_path/vimrc" >> $HOME/.vimrc
+
 
 echo "Would you like to install the plugins?"
 echo "Press [Y|n] to continue > "

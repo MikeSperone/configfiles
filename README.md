@@ -20,9 +20,12 @@ For my own usage, others are welcome to use them - I highly recommend reviewing 
 * [Airline](https://github.com/vim-airline/vim-airline) - status/tabline
 * [Airline Themes](https://github.com/vim-airline/vim-airline-themes)
 * [Commentary](https://github.com/tpope/vim-commentary) - comments shortcuts
+* [Gutentags](https://github.com/ludovicchabant/vim-gutentags.git) - ctag generator
 
 ## This is specific to my computer
-I'm starting to add more general considerations to allow install everywhere (OSX, Linux, Windows), but you should still browse the .sh scripts and files to confirm files and locations.
+If you are wanting to use this on your computer, I'm starting to add more general
+considerations to allow install everywhere (OSX, Linux, Windows), but you
+should still browse the .sh scripts and files to confirm files and locations.
 
 ## install will overwrite your files!!
 to install run:  `./install.sh`
