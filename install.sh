@@ -30,8 +30,6 @@ echo "Would you like to install your shell configuration?"
 echo "Press [Y|n] to continue >"
 read sh_config 
 if [[ $sh_config == "y" || $sh_config == "Y" ]]; then
-    echo "shell aliases..."
-    cp ./shell/.shell_aliases $HOME/.shell_aliases
 
     echo "Would you like to install a zsh configuration?"
     echo "Press [Y|n] to continue >"
@@ -47,7 +45,8 @@ if [[ $sh_config == "y" || $sh_config == "Y" ]]; then
     read bash_config
     if [[ $bash_config == "y" || $bash_config == "Y" ]]; then
         echo "aliases..."
-        cp ./bash/.bash_aliases $HOME/.bash_aliases
+        echo "DOTFILES_DIRECTORY=$DOTFILES_DIRECTORY"
+        echo "source \$DOTFILES_DIRECTORY/shell/bash/.bash_aliases" >> $HOME/.bashrc
     else
         echo "skipping bash config"
     fi
