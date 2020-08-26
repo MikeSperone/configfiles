@@ -2,9 +2,10 @@
 # update DefaultConfigFiles to this system's current files
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+VIM_CONF=$HOME/.vim
 
 function cd_bundle_dir() {
-    cd $HOME/.vim/bundle
+    cd $VIM_CONF/bundle
 }
 function git_install() {
     git_repo=$1
@@ -28,20 +29,20 @@ read continue_update
 if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "..."
 
-    if [ -d ~/.vim ]; then
+    if [ -d $VIM_CONF ]; then
         echo "vim directory exists"
     else
-        mkdir ~/.vim
+        mkdir $VIM_CONF
     fi
 
     echo "copying colors..."
     if [ -d ~/.vim/colors ]; then
         echo "colors directory exists"
     else
-        mkdir ~/.vim/colors
+        mkdir $VIM_CONF/colors
     fi
-    cp -R ./vim/colors/ ~/.vim/colors/**
-
+    cp -r $parent_path/vim/colors/ $VIM_CONF/
+    
     echo "Install Patched NerdFonts? [Y|n]"
     read ans
     if [[ $ans == "y" || $ans == "Y" ]]; then
