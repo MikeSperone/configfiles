@@ -11,6 +11,7 @@ git config --global alias.stauts status
 git config --global alias.staus status
 git config --global alias.statsus status
 git config --global alias.ls 'log --pretty=format:"%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn]" --decorate'
+git config --global alias.master '!git checkout master && git pull origin master'
 
 read -p "Would you like to set vim as your default editor? [Y]" vim_editor
 
