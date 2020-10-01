@@ -1,3 +1,4 @@
+TMUX=$HOME/.tmux
 echo "backup existing tmux.conf to tmux.conf.bak"
 cp $HOME/.tmux.conf $HOME/.tmux.conf.bak
 
@@ -8,16 +9,16 @@ echo "copying tmux-powerline conf"
 cp ./.tmux-powerlinerc $HOME/.tmux-powerlinerc
 
 echo "create plugins folder"
-if [ -d $HOME/.tmux ]; then
-    echo "$HOME/.tmux directory exists"
+if [ -d $TMUX ]; then
+    echo "$TMUX directory exists"
 else
-    mkdir $HOME/.tmux
+    mkdir $TMUX
 fi
 
-if [ -d $HOME/.tmux/plugins ]; then
-    echo "$HOME/.tmux/plugins directory exists"
+if [ -d $TMUX/plugins ]; then
+    echo "$TMUX/plugins directory exists"
 else
-    mkdir $HOME/.tmux/plugins
+    mkdir $TMUX/plugins
 fi
 
-git clone https://github.com/erikw/tmux-powerline.git
+git clone https://github.com/erikw/tmux-powerline.git $TMUX/plugins/tmux-powerline
