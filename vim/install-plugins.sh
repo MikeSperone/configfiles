@@ -89,6 +89,10 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "  auto pairs..."
     git_install git://github.com/jiangmiao/auto-pairs.git auto-pairs
 
+    echo
+    echo "  UltiSnips..."
+    git_install https://github.com/SirVer/ultisnips.git ultisnips
+
     echo;echo;
     echo "Install Plugins to assist with Tmux? [Y|n]"
     read tmux_plugins
