@@ -88,6 +88,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 " augroup END
 
 "  F Keys
+" <F2> set for UltiSnipsExpandTrigger
 nnoremap <F3> :set hlsearch!<CR>
 "     show relative numbers
 nnoremap <F4> :set number relativenumber!<CR>
@@ -175,3 +176,6 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#buffers_label = '%{hostname()}'
 
 set statusline+=%{gutentags#statusline()}
+
+" --- UltiSnips ---
+let g:UltiSnipsExpandTrigger="<F2>"
