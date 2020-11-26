@@ -60,6 +60,8 @@ set wildignore+=**/__mocks__/**
 set wildignore+=**/virtual_env/**
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+set wildmode=longest,list,full
 "   display all matching files when tab completing
 set wildmenu
 
