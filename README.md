@@ -1,10 +1,11 @@
 # configfiles
-vim, bash, git and others.
-For my own usage, others are welcome to use them - I highly recommend reviewing what is in here before using these.
+vim, bash, git, tmux, and others.
+For my own usage, others are welcome to use them - but please review what is in here before using these, since this is setup specifically for what works for me.
 
 ## Current list of config files
 * .vimrc
 * .bash_aliases
+* .tmux-config
 
 ## Vim Setup
 * Monokai colorscheme
@@ -23,14 +24,8 @@ For my own usage, others are welcome to use them - I highly recommend reviewing 
 * [Gutentags](https://github.com/ludovicchabant/vim-gutentags.git) - ctag generator
 
 ## This is specific to my computer
-If you are wanting to use this on your computer, I'm starting to add more general
-considerations to allow install everywhere (OSX, Linux, Windows), but you
-should still browse the .sh scripts and files to confirm files and locations.
+I'm starting to add more general considerations to allow install everywhere (OSX, Linux, Windows) since I would like to be able to use this for any computer and any environment.
+But you should browse the .sh scripts and files to confirm files and locations, etc... I haven't yet been able to run this on a new system without making changes.
 
 ## install will overwrite your files!!
 to install run:  `./install.sh`
-
-## to backup your current files (this will overwrite where this is stored)
-first update backup.sh so that the directory where this is stored is noted in `backup_directory`
-
-then run `./backup.sh`
