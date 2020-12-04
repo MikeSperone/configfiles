@@ -2,3 +2,12 @@ export PATH="$PATH:$DOTFILES_DIRECTORY/bin"
 # export PATH="$HOME/.cargo/bin:$PATH"
 # export PATH="/usr/local/MyBins/Faust-2.14.4/bin:$PATH"
 # export PATH="/usr/local/Cellar/python\@2/2.7.16/Frameworks/Python.framework/Versions/2.7/bin:$PATH"
+
+fixssh() {
+    eval $(tmux show-env    \
+        |sed -n 's/^\(SSH_[^=]*\)=\(.*\)/export \1="\2"/p')
+}
+
+if command -v tmux &> /dev/null && [ -n "$PS1"  ] && [[ ! "$TERM" =~ screen  ]] && [[ ! "$TERM" =~ tmux  ]] && [ -z "$TMUX"  ]; then
+  tmux attach || exec tmux new-session && fixssh && exit;
+fi
