@@ -21,6 +21,11 @@ function git_install() {
     fi
 }
 
+VIM_INFO=$(vim --version)
+VIM_VERSION=$($VIM_INFO | head -1 | grep -Eo '[78]\.[[:digit:]]')
+PYTHON_SUPPORTED=$($VIM_INFO | grep "+python")
+PYTHON3_SUPPORTED=$($VIM_INFO | grep "+python3")
+
 verbose=true
 echo "-- Installing Vim Plugins --"
 echo " "
@@ -89,9 +94,17 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "  auto pairs..."
     git_install git://github.com/jiangmiao/auto-pairs.git auto-pairs
 
-    echo
-    echo "  UltiSnips..."
-    git_install https://github.com/SirVer/ultisnips.git ultisnips
+    echo;echo;
+    echo "  snippets..."
+    if [[ PYTHON3_SUPPORTED ]]; then
+        echo " installing UltiSnips..."
+        git_install https://github.com/SirVer/ultisnips.git ultisnips
+    else
+        echo "python3 not supported, installing SnipMate..."
+        git_install https://github.com/tomtom/tlib_vim.git
+        git_install https://github.com/MarcWeber/vim-addon-mw-utils.git
+        git_install https://github.com/garbas/vim-snipmate.git
+    fi
 
     echo;echo;
     echo "Install Plugins to assist with Tmux? [Y|n]"
