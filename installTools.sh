@@ -8,7 +8,7 @@ source $DOTFILES_DIRECTORY/utils/detect_os.sh
 echo "msee   | terminal markdown viewer"
 echo "fx     | json viewer"
 echo "eslint | js linter"
-npm i -g msee fx eslint
+npm i -g msee fx fx-completion eslint
 
 echo "todo | simple task list"
 # echo "ddgr | cli duck duck go search"
