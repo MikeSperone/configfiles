@@ -84,14 +84,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " tab autocomplete
-function! CleverTab()
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        return "\<C-N>"
-    endif
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
+" function! CleverTab()
+"     if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+"         return "\<Tab>"
+"     else
+"         return "\<C-N>"
+"     endif
+" endfunction
+" inoremap <Tab> <C-R>=CleverTab()<CR>
 " autocomple while typing (doesn't work)
 " augroup myautocomp
 "     au!
@@ -155,7 +155,19 @@ let g:calendar_google_task = 1
 set statusline+=%{gutentags#statusline()}
 
 " --- UltiSnips ---
-let g:UltiSnipsExpandTrigger="<F2>"
+let g:UltiSnipsExpandTrigger="<NOP>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsJumpForwardTrigger = "<TAB>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-TAB>"
+function ExpandSnippet()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res
+        return ""
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippet()<CR>" : "\<CR>"
 
 " --- SnipMate (no python) ---
 let g:snipMate = { 'snippet_version' : 1 }
