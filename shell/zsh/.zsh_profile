@@ -1,19 +1,72 @@
+echo "loading $DOTFILES_DIRECTORY/shell/zsh/.zsh_profile"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+# Fixes zsh completion complaining about loose permissions
+# The loose permissions are on /usr/local/share/zsh, which 
+# give access to the usenews group.
 ZSH_DISABLE_COMPFIX=true
+ZSH_WEB_SEARCH_ENGINES=(reddit "https://www.reddit.com/search/?q=")
+
+echo "set web search engines"
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Start Tmux
+# ZSH_TMUS_AUTOSTART='true'
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+fi
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode gitfast history zsh-autosuggestions alias-finder web-search zsh-interactive-cd)
+plugins=(vi-mode history zsh-autosuggestions alias-finder web-search)
+echo "add zsh plugins"
+# ZSH_WEB_SEARCH_ENGINES=(
+#     search-jira "https://jira.usnews.com/secure/QuickSearch.jspa?searchString="
+# )
+
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME=powerlevel10k/powerlevel10k
+source $HOME/.p9k.zsh
+
 source $ZSH/oh-my-zsh.sh
 
-ZSH_THEME=powerlevel10k/powerlevel10k
+source $DOTFILES_DIRECTORY/shell/.shell_profile
+source $DOTFILES_DIRECTORY/shell/.shell_aliases
+
 
 # For Tmux powerline, for tmux < 2.1
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
+
+echo "done, I think"
 alias reload='source $HOME/.zshrc'

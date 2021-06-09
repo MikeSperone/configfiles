@@ -1,3 +1,4 @@
+echo "loading $DOTFILES_DIRECTORY/shell/.shell_profile"
 export PATH="$PATH:$DOTFILES_DIRECTORY/bin"
 # export PATH="$HOME/.cargo/bin:$PATH"
 # export PATH="/usr/local/MyBins/Faust-2.14.4/bin:$PATH"
