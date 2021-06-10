@@ -6,15 +6,17 @@ execute pathogen#infect()
 set nocompatible
 set number
 set colorcolumn=80
-filetype plugin on
+"filetype plugin on
 
 " Theme and Colors
-syntax on
 colorscheme molokai
 
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 set laststatus=2
+
+" Terminal
+set termwinsize=10x0
 
 "  Spaces and Tabs
 filetype plugin indent on
@@ -22,6 +24,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+syntax on
 
 " Searching
 set hlsearch
@@ -30,20 +33,26 @@ set incsearch
 set noesckeys
 
 " Directory (netrw)
-"   liststyle - 1: wide (file info) | 3: tree
-
+let g:netrw_keepdir = 0
 let g:netrw_browse_split = 3
 let g:netrw_altv = 1
+" hilight marked files
+hi! link netrwMarkFile Search
+
 " Landscape View Setup
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
+"   liststyle - 1: wide (file info) | 3: tree
 let g:netrw_liststyle = 1
+
 " Portrait View Setup
 " let g:netrw_windsize = 16
 " let g:netrw_liststyle = 3
 
 " Resize windows
 set winheight=30
+
+set splitbelow
 
 " --- Finding Files ---
 "   Recursive directory search, and tab completion
@@ -75,14 +84,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " tab autocomplete
-function! CleverTab()
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        return "\<C-N>"
-    endif
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
+" function! CleverTab()
+"     if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+"         return "\<Tab>"
+"     else
+"         return "\<C-N>"
+"     endif
+" endfunction
+" inoremap <Tab> <C-R>=CleverTab()<CR>
 " autocomple while typing (doesn't work)
 " augroup myautocomp
 "     au!
@@ -104,6 +113,13 @@ nnoremap <F9> :bn<CR>
 " or:
 nnoremap <Home> :bp<CR>
 nnoremap <End> :bn<CR>
+
+nnoremap <F12> :SearchTasks src/**/*.*<CR>
+
+autocmd BufNewFile,BufRead *.data,*.mjs,*.jsx set ft=javascript
+autocmd BufNewFile,BufRead *.ts,*.tsx set ft=typescript
+autocmd BufNewFile,BufRead *.ejs,*.nunj set ft=html
+
 
 " Javascript code folding
 set foldlevelstart=99
@@ -129,59 +145,32 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:javascript_plugin_jsdoc = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = '/bin/ls'
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-
-" let g:syntastic_javascript_jshint_exec = '$(npm bin)/jshint'
-" function! PickALinter()
-"     if findfile('.eslintrc.js', '.;') != ''
-"         return ['eslint']
-"     elseif findfile('.eslintrc', '.;') != ''
-"         return ['eslint']
-"     else
-"         return ['jshint']
-"     endif
-" endfunction
-" autocmd FileType javascript let b:syntastic_checkers = PickALinter()
-" autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : findfile('.eslintrc.js', '.;') != '' ? ['eslint'] : findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['standard']
-
-let g:syntastic_python_checkers = ['pylint']
-
-autocmd BufNewFile,BufRead *.data set ft=javascript
-autocmd BufNewFile,BufRead *.ejs,*.nunj set ft=html
+" let g:javascript_plugin_jsdoc = 1
 
 " --- Calendar ---
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
-" --- Slime ---
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
-
 " --- Airline ---
-"   theme
-let g:airline_powerline_fonts=1
-let g:airline_theme='molokai'
-
-"   disable tagbar
-let g:airline#extensions#tagbar#enabled = 0
-
-"   show buffer, filenames only
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-"   if index.js, show folder name
-let g:airline#extensions#tabline#formatter = 'jsformatter' 
-let g:airline#extensions#tabline#show_tabs = 0
-let g:airline#extensions#syntastic#enabled = 1
-"   show hostname
-let g:airline#extensions#tabline#buffers_label = '%{hostname()}'
-
 set statusline+=%{gutentags#statusline()}
 
 " --- UltiSnips ---
-" let g:UltiSnipsExpandTrigger="<F2>"
+let g:UltiSnipsExpandTrigger="<NOP>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsJumpForwardTrigger = "<TAB>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-TAB>"
+function ExpandSnippet()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res
+        return ""
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippet()<CR>" : "\<CR>"
 
 " --- SnipMate (no python) ---
 let g:snipMate = { 'snippet_version' : 1 }
+
+" --- TODO FIXME XXX ---
+

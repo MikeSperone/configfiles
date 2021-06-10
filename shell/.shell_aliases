@@ -22,8 +22,7 @@ alias list-scripts='npm-scripts'
 
 ## terminal aliases ##
 alias ..='cd ..'
-alias la='ls -al'
-alias l='ls -al'
+alias ...='cd ../..'
 
 ## git aliases
 alias gs='git status'
@@ -33,6 +32,8 @@ alias git-ssh="git remote set-url origin git@github.com:$(git remote get-url ori
 ##  File aliases
 if [[ "$platform" == 'windows' ]]; then
     alias l='dir'
+    alias la='dir'
 else
     alias l='ls -al'
+    alias la='ls -al'
 fi

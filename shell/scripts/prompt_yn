@@ -1,0 +1,11 @@
+function prompt_yn() {
+    while true; do
+        read -p "$0" yn
+        case $yn in
+            [Yy]* ) $1; break;;
+            [Nn]* ) exit;;
+            * ) echo "Y|n";;
+        esac
+    done
+}
+

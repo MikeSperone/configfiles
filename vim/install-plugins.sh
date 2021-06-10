@@ -67,7 +67,15 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
 
     echo
     echo "  syntastic..."
-    git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
+    if [ -d "syntastic" ]; then
+        git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
+    else
+        cd syntastic
+        git master
+        cd_bundle_dir
+    fi
+
+    echo
     echo "  gitgutter..."
     git_install git://github.com/airblade/vim-gitgutter.git vim-gitgutter
 
@@ -79,7 +87,7 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     echo "  airline..."
     git_install https://github.com/vim-airline/vim-airline vim-airline
     git_install https://github.com/vim-airline/vim-airline-themes vim-airline-themes
-    echo "source $parent_path/vimrc-airline" >> $HOME/.vimrc
+    echo "source $parent_path/vimrc.airline" >> $HOME/.vimrc
 
     echo
     echo "  gutentags..."
@@ -122,7 +130,7 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
         git_install https://github.com/vim-scripts/vim-pencil.git vim-pencil
         echo "vim-lexical"
         git_install https://github.com/reedes/vim-lexical.git vim-lexical
-        echo "source $parent_path/vim-writing" >> $HOME/.vimrc
+        echo "source $parent_path/vimrc.writing" >> $HOME/.vimrc
     fi
 
     echo;echo;
@@ -131,7 +139,7 @@ if [[ $continue_update == "y" || $continue_update == "Y" ]]; then
     if [[ $slimevim == "y" || $slimevim == "Y" ]]; then
         echo "slime vim..."
         git_install git://github.com/jpalardy/vim-slime.git vim-slime
-        echo "source $parent_path/vimrc-slime" >> $HOME/.vimrc
+        echo "source $parent_path/vimrc.slime" >> $HOME/.vimrc
     fi
 
     echo;echo;

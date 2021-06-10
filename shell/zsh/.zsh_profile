@@ -8,7 +8,7 @@ ZSH_DISABLE_COMPFIX=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode gitfast history zsh-autosuggestions)
+plugins=(vi-mode gitfast history zsh-autosuggestions alias-finder web-search zsh-interactive-cd)
 source $ZSH/oh-my-zsh.sh
 
 ZSH_THEME=powerlevel10k/powerlevel10k

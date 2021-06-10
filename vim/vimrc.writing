@@ -1,9 +1,9 @@
-let g:pencil#wrapModeDefault = 'hard'   " or 'soft'
+let g:pencil#wrapModeDefault = 'soft'   " or 'soft'
 augroup pencil
     autocmd!
     autocmd FileType markdown call pencil#init()
     autocmd FileType textile call pencil#init()
-    autocmd FileType text call pencil#init({'wrap': 'hard'})
+    autocmd FileType text call pencil#init({'wrap': 'soft'})
 augroup END"
 augroup lexical
     autocmd!
