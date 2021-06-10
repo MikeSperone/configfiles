@@ -181,7 +181,7 @@ let g:airline#extensions#tabline#buffers_label = '%{hostname()}'
 set statusline+=%{gutentags#statusline()}
 
 " --- UltiSnips ---
-let g:UltiSnipsExpandTrigger="<F2>"
+" let g:UltiSnipsExpandTrigger="<F2>"
 
 " --- SnipMate (no python) ---
 let g:snipMate = { 'snippet_version' : 1 }
